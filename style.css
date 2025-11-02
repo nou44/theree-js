@@ -1,0 +1,20 @@
+
+/* إعدادات أساسية */
+body{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: 'Arial', sans-serif;
+    background-color: rgb(0, 0, 0);
+    width: 100vh;
+  }
+  
+  /* خلفية القمر (canvas) */
+  canvas#bg {
+    position: fixed;
+   
+    width: 100vh;
+    height: 100vh;
+    z-index: -1; /* خلف المحتوى */
+  }
+  
