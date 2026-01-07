@@ -1,20 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&family=Fredoka:wght@300..700&family=Neucha&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* إعدادات أساسية */
 body{
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    font-family: 'Arial', sans-serif;
-    background-color: rgb(0, 0, 0);
-    width: 100vh;
-  }
+  margin:0;
+font-family: "Roboto", sans-serif;
+  background:black;
+}
+
+#bg{
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.ui{
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+
+  pointer-events:none;
+}
+
+
+
+.logo{
+  width:100px;
+  margin:25px 0 10px;
+  position: relative;
+  right: 45%;
+  bottom: 30%;
+}
+
+h1{
+  font-size:2.2rem;
+  margin:15px 0;
+  color: #ffffff;
+  position: relative;
+  top: -25%;
+}
+
+p{
+  max-width:600px;
+  font-size:1rem;
+  opacity:.85;
+  color: #cb7410;
+  position: relative;
+  bottom: 60%;
   
-  /* خلفية القمر (canvas) */
-  canvas#bg {
-    position: fixed;
-   
-    width: 100vh;
-    height: 100vh;
-    z-index: -1; /* خلف المحتوى */
+}
+
+.btn{
+  margin-top:25px;
+  padding:12px 35px;
+  border-radius:30px;
+  border:1px solid #cb7410;
+  color:#fbfbfa;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.btn:hover{
+   transform:scale(1.08);
+  box-shadow:0 0 25px rgba(255,170,80,1);
+}
+
+/* ===== COUNTDOWN ===== */
+
+.countdown{
+  display:flex;
+  gap:15px;
+  margin-bottom:15px;
+}
+
+.countdown-item{
+  background:rgba(255,255,255,.1);
+  padding:10px 18px;
+  border-radius:12px;
+  min-width:70px;
+   border:1px solid #cb7410;
+   color: #ffffff;
+}
+
+.countdown-item span{
+  font-size:1.5rem;
+  font-weight:bold;
+}
+
+.countdown-item small{
+  display:block;
+  font-size:.7rem;
+  opacity:.7;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+
+  h1{ font-size:1.5rem; }
+
+  p{ font-size:.9rem; }
+
+  .logo{ width:95px; }
+
+  .countdown{ gap:8px; }
+
+  .countdown-item{ padding:8px 10px; min-width:55px; }
+
+}
+
+.ui{
+  pointer-events:none;
+}
+.ui *{
+  pointer-events:auto;
+}
+.ui a,
+.ui button{
+  pointer-events:auto;
+}
+@media (max-width: 600px){
+
+  .ui{
+    padding: 20px;
   }
-  
+
+  .logo{
+    width:70px;
+    right: 0;
+    bottom: 0;
+    margin-bottom:10px;
+  }
+
+  h1{
+    font-size:1.35rem;
+    top:0;
+    margin:10px 0;
+  }
+
+  p{
+    font-size:.9rem;
+    max-width:95%;
+    bottom:0;
+    margin-bottom:10px;
+  }
+
+  .countdown{
+    gap:8px;
+    margin-bottom:12px;
+  }
+
+  .countdown-item{
+    padding:6px 8px;
+    min-width:52px;
+  }
+
+  .countdown-item span{
+    font-size:1.1rem;
+  }
+
+  .countdown-item small{
+    font-size:.65rem;
+  }
+
+  .btn{
+    padding:10px 26px;
+    font-size:.85rem;
+    margin-top:12px;
+  }
+
+}

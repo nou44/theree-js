@@ -1,4 +1,5 @@
-// إعداد المشهد والكاميرا والرندر
+
+      // إعداد المشهد والكاميرا والرندر
 const scene = new THREE.Scene();
 
 // خلفية بتدرج لوني
@@ -132,15 +133,26 @@ window.addEventListener('resize', () => {
   renderer.setSize(window.innerWidth, window.innerHeight);
   controls.handleResize();
 });
+// === 🧭 LOGIQUE DU COUNTDOWN VERS 2027 ===
 
-// تحديد تاريخ البداية الثابت
-const projectStartDate = new Date("2025-04-16T00:00:00");
-const countdownDate = new Date(projectStartDate);
-countdownDate.setMonth(countdownDate.getMonth() + 6);
+// تاريخ النهاية الثابت
+const finalDate = new Date("2027-01-01T00:00:00");
+
+// تاريخ أول زيارة
+let startDate = localStorage.getItem("moonees_start");
+
+if (!startDate) {
+  startDate = new Date().toISOString();
+  localStorage.setItem("moonees_start", startDate);
+}
+
+startDate = new Date(startDate);
+
 
 const interval = setInterval(() => {
   const now = new Date();
-  const distance = countdownDate - now;
+  const distance = finalDate - now;
+
 
   if (distance <= 0) {
     clearInterval(interval);
@@ -158,5 +170,4 @@ const interval = setInterval(() => {
   if (el("hours")) el("hours").innerText = hours;
   if (el("minutes")) el("minutes").innerText = minutes;
   if (el("seconds")) el("seconds").innerText = seconds;
-}, 1000);
-
+}, 1000); 
